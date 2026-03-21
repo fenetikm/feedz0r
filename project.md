@@ -1,7 +1,8 @@
 # Feedz0r
 
-My personal RSS CLI feed reader.
+My personal RSS CLI feed reader and watcher.
 Bring it up in a tmux popup!
+Keep it running to update dem feeds.
 
 ## Stack
 - Go
@@ -20,6 +21,16 @@ Me to implement.
 
 ## AI implement
 Send email digest.
+
+## Specs
+- get one random post
+- crud stuff
+
+Examples:
+```sh
+# add
+feedzor add --url https://its.mw/atom.xml
+```
 
 ## Later
 - AI stuff:
