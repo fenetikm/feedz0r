@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+.LSOverride
+
+# Go
+*.test
+*.out
+fz
+
+# Environment
+.env
+.env.local
