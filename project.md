@@ -40,3 +40,22 @@ feedzor add --url https://its.mw/atom.xml
 
 ## Feeds to start with
 - https://its.mw/atom.xml
+
+## Architecture
+
+```text
+## Option 1: Flat cmd/ with subcommands (simplest)
+    myapp/
+    ├── cmd/
+    │   └── myapp/
+    │       └── main.go          # flag root, subcommands wired here
+    ├── internal/
+    │   ├── tui/                 # bubbletea/tview components
+    │   ├── daemon/              # daemon loop, signal handling, pidfile
+    │   └── config/
+    └── go.mod
+
+  • Use subcommands: myapp tui, myapp run, myapp daemon
+  • Good for small-to-medium projects
+  • Everything under internal/ keeps logic out of main.go
+```

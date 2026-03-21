@@ -1,2 +1,3 @@
 db:
-
+  url: example.com
+debug: false
