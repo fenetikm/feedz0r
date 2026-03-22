@@ -2,14 +2,19 @@ package feeds
 
 import (
 	"context"
+	"database/sql"
 	"encoding/xml"
+	"errors"
 	"fmt"
 	"html"
 	"io"
 	"net/http"
 	"time"
 
+	"github.com/fenetikm/feedz0r/internal/db/database"
 	"github.com/fenetikm/feedz0r/internal/state"
+	"modernc.org/sqlite"
+	sqlite3 "modernc.org/sqlite/lib"
 )
 
 // todo: Atom support, and generic "feed" struct
@@ -27,6 +32,53 @@ type RSSFeed struct {
 		Description string    `xml:"description"`
 		Item        []RSSItem `xml:"item"`
 	} `xml:"channel"`
+}
+
+func Process(s *state.State, ctx context.Context) (*RSSFeed, error) {
+	feed, err := s.Db.GetNextFeedToFetch(context.Background())
+	if err != nil {
+		return &RSSFeed{}, errors.New("Error fetching next feed.")
+	}
+
+	rssFeed, err := Fetch(s, context.Background(), feed.Url)
+	if err != nil {
+		return &RSSFeed{}, err
+	}
+
+	err = s.Db.MarkFeedFetched(context.Background(), feed.ID)
+	if err != nil {
+		return &RSSFeed{}, fmt.Errorf("Error marking feed as fetched: %v\n", err)
+	}
+
+	currentTime := time.Now().Unix()
+	for _, item := range rssFeed.Channel.Item {
+		pubDate, err := time.Parse("Mon, 02 Jan 2006 15:04:05 -0700", item.PubDate)
+		if err != nil {
+			fmt.Printf("Could not convert published date %s.\n", item.PubDate)
+			continue
+		}
+		postParams := database.CreatePostParams{
+			CreatedAt:   currentTime,
+			UpdatedAt:   currentTime,
+			Title:       item.Title,
+			Url:         item.Link,
+			Description: sql.NullString{String: item.Description, Valid: item.Description != ""},
+			PublishedAt: pubDate.Unix(),
+			FeedID:      feed.ID,
+		}
+		_, err = s.Db.CreatePost(context.Background(), postParams)
+		if err != nil {
+			var sqliteErr *sqlite.Error
+			if errors.As(err, &sqliteErr) && sqliteErr.Code() ==
+				sqlite3.SQLITE_CONSTRAINT_UNIQUE {
+				continue // skip duplicates
+			}
+
+			return &RSSFeed{}, fmt.Errorf("Error storing post: %v\n", err)
+		}
+	}
+
+	return rssFeed, nil
 }
 
 func Fetch(s *state.State, ctx context.Context, feedURL string) (*RSSFeed, error) {

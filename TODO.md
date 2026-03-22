@@ -33,11 +33,13 @@ Using FZF we could do something via this command for simplicity.
 - Wrap db handling
 - Commands print their help
 - Config file specifies location of db e.g. `~/.fz/fz.db`
-- Atom feeds and RSS, detect
+- Atom feeds and RSS, detect can look at `mmcdole/gofeed`
 - Test against a local file for fetching
+- Markdown output via `JohannesKaufmann/html-to-markdown → glamour.`
 
 ## Later
 - Tests
 - Create DB, run migrations etc.
 - Dockerised versioned
 - Vim keys, at least up / down
+- Have a lookg at

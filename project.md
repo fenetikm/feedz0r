@@ -21,8 +21,9 @@ Me to implement.
 
 ## AI implement
 Things for AI to do:
+- Output markdown of a post
 - Add in "help" messages for each command
-- Send email digest.
+- Send email digest
 
 ## Specs
 - get one random post
