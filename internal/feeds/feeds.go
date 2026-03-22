@@ -12,7 +12,7 @@ import (
 	"github.com/fenetikm/feedz0r/internal/state"
 )
 
-// todo: Atom support
+// todo: Atom support, and generic "feed" struct
 type RSSItem struct {
 	Title       string `xml:"title"`
 	Link        string `xml:"link"`
@@ -31,7 +31,7 @@ type RSSFeed struct {
 
 func Fetch(s *state.State, ctx context.Context, feedURL string) (*RSSFeed, error) {
 	// Create a context with timeout
-	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
+	ctx, cancel := context.WithTimeout(ctx, time.Duration(s.Config.Fetch.Timeout)*time.Second)
 	defer cancel()
 
 	// Create request

@@ -1,7 +1,7 @@
 # TODO.md
 
 ## Now
-- [ ] Fetch a feed, RSS
+- [X] Fetch a feed, RSS
 - [ ] Store feed posts
 - [ ] Don't fetch if it has been a while
 

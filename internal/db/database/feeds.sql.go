@@ -66,3 +66,14 @@ func (q *Queries) GetNextFeedToFetch(ctx context.Context) (Feed, error) {
 	)
 	return i, err
 }
+
+const markFeedFetched = `-- name: MarkFeedFetched :exec
+UPDATE feeds
+SET last_fetched_at = unixepoch(), updated_at = unixepoch()
+WHERE id = ?
+`
+
+func (q *Queries) MarkFeedFetched(ctx context.Context, id int64) error {
+	_, err := q.db.ExecContext(ctx, markFeedFetched, id)
+	return err
+}

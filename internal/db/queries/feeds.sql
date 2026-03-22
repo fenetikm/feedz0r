@@ -15,6 +15,6 @@ ORDER BY last_fetched_at NULLS FIRST;
 
 -- name: MarkFeedFetched :exec
 UPDATE feeds
-SET last_fetched_at = now(), updated_at = now()
+SET last_fetched_at = unixepoch(), updated_at = unixepoch()
 WHERE id = ?;
 
