@@ -1,11 +1,6 @@
 # TODO.md
 
 ## Now
-- [X] List of feeds
-- [X] Get a list of entries for a feed
-- [X] Get post by ID
-- [X] Output handling
-- [X] Try using FZF, raw output
 - [ ] Don't put the ID in parens, confusing when post title has parens
 - [ ] Output number of posts for a feed via `list`
 - [ ] Fetch, refresh all feeds
@@ -27,21 +22,19 @@
 - [X] Store feed posts
 - [X] Basic daemon going
 - [X] Don't fetch if it has been a while
-
-## Notes
-Fetching:
-- we have the command `fetch`
-- want to have something that can be called by daemon and also the command
-
-Using FZF we could do something via this command for simplicity.
+- [X] List of feeds
+- [X] Get a list of entries for a feed
+- [X] Get post by ID
+- [X] Output handling
+- [X] Try using FZF, raw output
 
 ## Soon
 - `help <cmd>` to run `Help` func
 - Config file specifies location of db e.g. `~/.fz/fz.db`
 - Have a default config file which can be overridden via `~/.config/fz/config.yml`
 - Atom feeds and RSS, detect can look at `mmcdole/gofeed`
-- Test against a local file for fetching
-- Markdown output via `JohannesKaufmann/html-to-markdown → glamour.`
+- Tests, create more fixture examples
+- see `misc/fixes_01.md`, found by Claude
 
 ## Later
 - Tests
@@ -49,3 +42,6 @@ Using FZF we could do something via this command for simplicity.
 - Dockerised versioned
 - Vim keys, at least up / down
 - Have a lookg at
+
+## Refs
+- Markdown output via `JohannesKaufmann/html-to-markdown → glamour`
