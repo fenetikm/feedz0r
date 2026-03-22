@@ -20,7 +20,9 @@ Me to implement.
 - Logging
 
 ## AI implement
-Send email digest.
+Things for AI to do:
+- Add in "help" messages for each command
+- Send email digest.
 
 ## Specs
 - get one random post

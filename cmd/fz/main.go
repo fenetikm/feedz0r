@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 	"os"
@@ -10,7 +11,9 @@ import (
 	"github.com/fenetikm/feedz0r/internal/commands/add"
 	"github.com/fenetikm/feedz0r/internal/commands/help"
 	"github.com/fenetikm/feedz0r/internal/config"
+	"github.com/fenetikm/feedz0r/internal/db/database"
 	"github.com/fenetikm/feedz0r/internal/state"
+	_ "modernc.org/sqlite"
 )
 
 func main() {
@@ -22,9 +25,19 @@ func main() {
 		Handlers: make(map[string]func(*state.State, cmdtypes.Command) error),
 	}
 
+	db, err := sql.Open("sqlite", "feedz0r.db")
+	if err != nil {
+		fmt.Println(err)
+		log.Fatal("Can't open db")
+	}
+
+	dbQueries := database.New(db)
+	defer db.Close()
+
 	s := state.State{
 		Config: &c,
 		Cmds:   &cmds,
+		Db:     dbQueries,
 	}
 
 	s.Cmds.Register("help", help.Handle)

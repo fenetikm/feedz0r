@@ -3,6 +3,7 @@ package state
 import (
 	"github.com/fenetikm/feedz0r/internal/cmdtypes"
 	"github.com/fenetikm/feedz0r/internal/config"
+	"github.com/fenetikm/feedz0r/internal/db/database"
 )
 
 type Runner interface {
@@ -13,4 +14,5 @@ type Runner interface {
 type State struct {
 	Config *config.Config
 	Cmds   Runner
+	Db     *database.Queries
 }
