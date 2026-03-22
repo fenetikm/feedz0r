@@ -17,3 +17,7 @@ FROM posts
 ORDER BY published_at desc
 LIMIT ?;
 
+-- name: GetPostByID :one
+SELECT *
+FROM posts
+WHERE id = ?;

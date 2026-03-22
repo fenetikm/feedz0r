@@ -15,7 +15,7 @@ import (
 func Handle(s *state.State, cmd cmdtypes.Command) error {
 	// todo: params validation
 	if len(cmd.Args) < 2 {
-		return fmt.Errorf("Missing two required params: <name> <url>")
+		return fmt.Errorf("Missing two required args: <name> <url>")
 	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)

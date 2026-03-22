@@ -12,6 +12,7 @@ import (
 	"github.com/fenetikm/feedz0r/internal/commands/fetch"
 	"github.com/fenetikm/feedz0r/internal/commands/help"
 	"github.com/fenetikm/feedz0r/internal/commands/list"
+	"github.com/fenetikm/feedz0r/internal/commands/post"
 	"github.com/fenetikm/feedz0r/internal/commands/watch"
 	"github.com/fenetikm/feedz0r/internal/config"
 	"github.com/fenetikm/feedz0r/internal/db/database"
@@ -48,6 +49,7 @@ func main() {
 	s.Cmds.Register("fetch", fetch.Handle)
 	s.Cmds.Register("watch", watch.Handle)
 	s.Cmds.Register("list", list.Handle)
+	s.Cmds.Register("post", post.Handle)
 
 	args := os.Args
 	if len(args) < 2 {
