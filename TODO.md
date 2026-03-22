@@ -4,6 +4,9 @@
 - [X] Fetch a feed, RSS
 - [ ] Store feed posts
 - [ ] Don't fetch if it has been a while
+- [ ] Basic daemon going
+- [ ] List of feeds
+- [ ] Get a list of entries for a feed
 
 ## Done
 - [X] Read config
