@@ -7,6 +7,7 @@ import (
 
 	"github.com/fenetikm/feedz0r/internal/cmdtypes"
 	"github.com/fenetikm/feedz0r/internal/commands"
+	"github.com/fenetikm/feedz0r/internal/commands/add"
 	"github.com/fenetikm/feedz0r/internal/commands/help"
 	"github.com/fenetikm/feedz0r/internal/config"
 	"github.com/fenetikm/feedz0r/internal/state"
@@ -27,6 +28,7 @@ func main() {
 	}
 
 	s.Cmds.Register("help", help.Handle)
+	s.Cmds.Register("add", add.Handle)
 
 	args := os.Args
 	if len(args) < 2 {
@@ -41,7 +43,7 @@ func main() {
 
 	err = s.Cmds.Run(&s, argCmd)
 	if err != nil {
-		fmt.Printf("Command %s does not exist.\n", argCmd.Name)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 }
