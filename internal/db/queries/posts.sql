@@ -11,3 +11,9 @@ VALUES (
 )
 RETURNING *;
 
+-- name: GetPosts :many
+SELECT *
+FROM posts
+ORDER BY published_at desc
+LIMIT ?;
+
