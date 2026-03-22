@@ -20,12 +20,8 @@ Me to implement.
 
 ## AI implement ideas
 Things for AI to do:
-- Output markdown of a post
-- Add in "help" messages for each command
+- Add in "help" messages for each command, get "help" command working
 - Send email digest
-- Add in documentation for each function
-- More `list` things:
-    * Different output
 
 ## Specs
 - get one random post
