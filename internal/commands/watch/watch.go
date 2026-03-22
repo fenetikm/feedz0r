@@ -18,7 +18,7 @@ func Handle(s *state.State, cmd cmdtypes.Command) error {
 	if err != nil {
 		log.Fatalln("Could not parse time duration argument.")
 	}
-	fmt.Printf("Watching feeds and processing every %s\n", timeBetween)
+	fmt.Printf("Watching feeds and processing every %s.\n", timeBetween)
 
 	ticker := time.NewTicker(timeBetween)
 	for ; ; <-ticker.C {

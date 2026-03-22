@@ -4,9 +4,11 @@
 - [X] List of feeds
 - [X] Get a list of entries for a feed
 - [ ] Get post by ID
+- [ ] Output handling
 - [ ] Try using FZF, raw output
-- [ ] Output markdown
 - [ ] Update README.md
+- [ ] Don't put the ID in parens, confusing
+- [ ] Output number of posts for a feed via `list`
 
 ## Done
 - [X] Read config
