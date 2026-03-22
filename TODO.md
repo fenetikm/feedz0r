@@ -1,8 +1,6 @@
 # TODO.md
 
 ## Now
-- [X] Basic daemon going
-- [X] Don't fetch if it has been a while
 - [ ] List of feeds
 - [ ] Get a list of entries for a feed
 - [ ] Try using FZF, raw output
@@ -22,6 +20,8 @@
     - [X] Test, manual
 - [X] Fetch a feed, RSS
 - [X] Store feed posts
+- [X] Basic daemon going
+- [X] Don't fetch if it has been a while
 
 ## Notes
 Fetching:

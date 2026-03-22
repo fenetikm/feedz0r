@@ -15,7 +15,7 @@ import (
 func Handle(s *state.State, cmd cmdtypes.Command) error {
 	// todo: params validation
 	if len(cmd.Args) < 2 {
-		return fmt.Errorf("Missing two required param: <name> <url>")
+		return fmt.Errorf("Missing two required params: <name> <url>")
 	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
@@ -41,7 +41,10 @@ func Handle(s *state.State, cmd cmdtypes.Command) error {
 }
 
 func Help(s *state.State, cmd cmdtypes.Command) error {
-	fmt.Println("add - add a feed")
+	fmt.Println("add - add a feed by name and URL\n")
+	fmt.Println("Usage: fz add <name> <url>\n")
+	fmt.Println("Example:")
+	fmt.Println(`  fz add "its.mw" https://its.mw/atom.xml`)
 
 	return nil
 }
