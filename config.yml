@@ -1,4 +1,3 @@
 fetch:
   timeout: 10
-  refresh: 60
-  maxfeeds: 1
+  refresh: 5
