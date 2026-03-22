@@ -15,7 +15,6 @@ type FetchConfig struct {
 }
 
 type Config struct {
-	Debug bool        `yaml:"debug"`
 	Fetch FetchConfig `yaml:"fetch"`
 }
 

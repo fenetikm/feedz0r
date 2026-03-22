@@ -1,10 +1,12 @@
 # TODO.md
 
 ## Now
-- [ ] List of feeds
-- [ ] Get a list of entries for a feed
+- [X] List of feeds
+- [X] Get a list of entries for a feed
+- [ ] Get post by ID
 - [ ] Try using FZF, raw output
 - [ ] Output markdown
+- [ ] Update README.md
 
 ## Done
 - [X] Read config
@@ -31,10 +33,9 @@ Fetching:
 Using FZF we could do something via this command for simplicity.
 
 ## Soon
-- Fetch feed
-- Wrap db handling
-- Commands print their help
+- `help <cmd>` to run `Help` func
 - Config file specifies location of db e.g. `~/.fz/fz.db`
+- Have a default config file which can be overridden via `~/.config/fz/config.yml`
 - Atom feeds and RSS, detect can look at `mmcdole/gofeed`
 - Test against a local file for fetching
 - Markdown output via `JohannesKaufmann/html-to-markdown → glamour.`

@@ -13,18 +13,19 @@ Keep it running to update dem feeds.
 Me to implement.
 - CRUD feeds
 - Fetch a feed, see changes
+- Poll feeds for updates (configurable re how often)
 - TUI for reading feeds:
     * Show which ones have new things
     * Select one, show to the right, formatted
-- Poll feeds for updates (configurable re how often)
-- Logging
 
-## AI implement
+## AI implement ideas
 Things for AI to do:
 - Output markdown of a post
 - Add in "help" messages for each command
 - Send email digest
 - Add in documentation for each function
+- More `list` things:
+    * Different output
 
 ## Specs
 - get one random post
