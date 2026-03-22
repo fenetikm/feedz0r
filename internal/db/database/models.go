@@ -9,9 +9,21 @@ import (
 )
 
 type Feed struct {
-	ID        int64
-	CreatedAt int64
-	UpdatedAt int64
-	Name      sql.NullString
-	Url       string
+	ID            int64
+	CreatedAt     int64
+	UpdatedAt     int64
+	Name          sql.NullString
+	Url           string
+	LastFetchedAt sql.NullInt64
+}
+
+type Post struct {
+	ID          int64
+	CreatedAt   int64
+	UpdatedAt   int64
+	Title       string
+	Url         string
+	Description sql.NullString
+	PublishedAt int64
+	FeedID      int64
 }

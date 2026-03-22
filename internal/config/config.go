@@ -8,8 +8,13 @@ import (
 
 const configFileName = "config.yml"
 
+type FetchConfig struct {
+	Timeout int `yaml:"timeout"`
+}
+
 type Config struct {
-	Debug bool `yaml:"debug"`
+	Debug bool        `yaml:"debug"`
+	Fetch FetchConfig `yaml:"fetch"`
 }
 
 func Load() (Config, error) {
