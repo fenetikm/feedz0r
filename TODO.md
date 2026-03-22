@@ -1,26 +1,40 @@
 # TODO.md
 
 ## Now
+- [ ] Fetch a feed, RSS
+- [ ] Store feed posts
+- [ ] Don't fetch if it has been a while
+
+## Done
 - [X] Read config
 - [X] `Help` command (but not output anything)
 - [X] Shift help to it's own file etc.
 - [X] `Add` command (don't actually add)
-- [.] Add a feed:
+- [X] Add a feed:
     - [X] Take in the arg, print
-    - [ ] SQLite using config, connect
-    - [ ] Config file for db config
-    - [ ] Define schema for a feed
-    - [ ] Add to db
-    - [ ] Test, manual
-- [ ] Commands print their help
+    - [X] SQLite using config, connect
+    - [X] Config file for db config
+    - [X] Define schema for a feed
+    - [X] Add to db
+    - [X] Test, manual
+
+## Notes
+Fetching:
+- we have the command `fetch`
+- want to have something that can be called by daemon and also the command
+
+Using FZF we could do something via this command for simplicity.
 
 ## Soon
-- Add feed
 - Fetch feed
-- Better db handling
+- Wrap db handling
+- Commands print their help
+- Config file specifies location of db e.g. `~/.fz/fz.db`
+- Atom feeds and RSS, detect
+- Test against a local file for fetching
 
 ## Later
 - Tests
-- Init DB if not exists
-- Dockerise
+- Create DB, run migrations etc.
+- Dockerised versioned
 - Vim keys, at least up / down
