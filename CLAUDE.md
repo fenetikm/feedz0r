@@ -1,5 +1,6 @@
-# Claude
-See @project.md for now.
+# FeedzOr
+
+RSS feed wrangler CLI.
 
 ## Stack
 - Go language

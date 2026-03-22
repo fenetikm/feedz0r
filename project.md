@@ -34,6 +34,7 @@ feedzor add --url https://its.mw/atom.xml
 ```
 
 ## Later
+- Watch a web page for changes instead of a feed.
 - AI stuff:
     * Summary of what is in an article
     * Convert HTML to markdown
@@ -44,6 +45,7 @@ feedzor add --url https://its.mw/atom.xml
 
 ## Architecture
 
+Note: out of date now.
 ```text
 ## Option 1: Flat cmd/ with subcommands (simplest)
     myapp/

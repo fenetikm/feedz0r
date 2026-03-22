@@ -1,6 +1,6 @@
 # Feedz0r
 
-RSS feed wrangler TUI.
+RSS feed wrangler CLI.
 
 ## Installation
 ```sh
