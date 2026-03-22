@@ -9,7 +9,9 @@ import (
 const configFileName = "config.yml"
 
 type FetchConfig struct {
-	Timeout int `yaml:"timeout"`
+	Timeout     int `yaml:"timeout"`
+	RefreshMins int `yaml:"refresh"`
+	MaxFeeds    int `yaml:"maxfeeds"`
 }
 
 type Config struct {

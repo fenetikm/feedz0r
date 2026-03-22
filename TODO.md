@@ -1,12 +1,12 @@
 # TODO.md
 
 ## Now
-- [X] Fetch a feed, RSS
-- [ ] Store feed posts
-- [ ] Don't fetch if it has been a while
-- [ ] Basic daemon going
+- [X] Basic daemon going
+- [X] Don't fetch if it has been a while
 - [ ] List of feeds
 - [ ] Get a list of entries for a feed
+- [ ] Try using FZF, raw output
+- [ ] Output markdown
 
 ## Done
 - [X] Read config
@@ -20,6 +20,8 @@
     - [X] Define schema for a feed
     - [X] Add to db
     - [X] Test, manual
+- [X] Fetch a feed, RSS
+- [X] Store feed posts
 
 ## Notes
 Fetching:

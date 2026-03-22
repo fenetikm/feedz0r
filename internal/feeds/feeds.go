@@ -35,17 +35,18 @@ type RSSFeed struct {
 }
 
 func Process(s *state.State, ctx context.Context) (*RSSFeed, error) {
-	feed, err := s.Db.GetNextFeedToFetch(context.Background())
+	// todo: output how many new posts
+	feed, err := s.Db.GetNextFeedToFetch(ctx)
 	if err != nil {
 		return &RSSFeed{}, errors.New("Error fetching next feed.")
 	}
 
-	rssFeed, err := Fetch(s, context.Background(), feed.Url)
+	rssFeed, err := Fetch(s, ctx, feed.Url)
 	if err != nil {
 		return &RSSFeed{}, err
 	}
 
-	err = s.Db.MarkFeedFetched(context.Background(), feed.ID)
+	err = s.Db.MarkFeedFetched(ctx, feed.ID)
 	if err != nil {
 		return &RSSFeed{}, fmt.Errorf("Error marking feed as fetched: %v\n", err)
 	}
@@ -66,7 +67,7 @@ func Process(s *state.State, ctx context.Context) (*RSSFeed, error) {
 			PublishedAt: pubDate.Unix(),
 			FeedID:      feed.ID,
 		}
-		_, err = s.Db.CreatePost(context.Background(), postParams)
+		_, err = s.Db.CreatePost(ctx, postParams)
 		if err != nil {
 			var sqliteErr *sqlite.Error
 			if errors.As(err, &sqliteErr) && sqliteErr.Code() ==

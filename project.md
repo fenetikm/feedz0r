@@ -24,6 +24,7 @@ Things for AI to do:
 - Output markdown of a post
 - Add in "help" messages for each command
 - Send email digest
+- Add in documentation for each function
 
 ## Specs
 - get one random post
