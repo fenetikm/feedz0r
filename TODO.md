@@ -3,12 +3,13 @@
 ## Now
 - [X] List of feeds
 - [X] Get a list of entries for a feed
-- [ ] Get post by ID
-- [ ] Output handling
-- [ ] Try using FZF, raw output
-- [ ] Update README.md
-- [ ] Don't put the ID in parens, confusing
+- [X] Get post by ID
+- [X] Output handling
+- [X] Try using FZF, raw output
+- [ ] Don't put the ID in parens, confusing when post title has parens
 - [ ] Output number of posts for a feed via `list`
+- [ ] Fetch, refresh all feeds
+- [ ] Update README.md
 
 ## Done
 - [X] Read config
