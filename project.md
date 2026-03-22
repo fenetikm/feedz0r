@@ -21,6 +21,8 @@ Me to implement.
 ## AI implement ideas
 Things for AI to do:
 - Add in "help" messages for each command, get "help" command working
+- `remove` command, charm selection?
+- open in browser (via `FZF`?)
 - Send email digest
 
 ## Specs
@@ -45,20 +47,27 @@ feedzor add --url https://its.mw/atom.xml
 
 ## Architecture
 
-Note: out of date now.
 ```text
-## Option 1: Flat cmd/ with subcommands (simplest)
-    myapp/
-    ├── cmd/
-    │   └── myapp/
-    │       └── main.go          # flag root, subcommands wired here
-    ├── internal/
-    │   ├── tui/                 # bubbletea/tview components
-    │   ├── daemon/              # daemon loop, signal handling, pidfile
-    │   └── config/
-    └── go.mod
-
-  • Use subcommands: myapp tui, myapp run, myapp daemon
-  • Good for small-to-medium projects
-  • Everything under internal/ keeps logic out of main.go
+.
+├── cmd
+│   └── fz
+├── internal
+│   ├── cmdtypes
+│   ├── commands
+│   │   ├── add
+│   │   ├── fetch
+│   │   ├── help
+│   │   ├── list
+│   │   ├── post
+│   │   └── watch
+│   ├── config
+│   ├── db
+│   │   ├── database
+│   │   ├── queries
+│   │   └── schema
+│   ├── feeds
+│   └── state
+├── misc
+└── tests
+    └── fixtures
 ```

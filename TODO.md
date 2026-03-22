@@ -41,7 +41,8 @@
 - Create DB, run migrations etc.
 - Dockerised versioned
 - Vim keys, at least up / down
-- Have a lookg at
+- Caching
+- Debug mode, to file?
 
 ## Refs
 - Markdown output via `JohannesKaufmann/html-to-markdown → glamour`
