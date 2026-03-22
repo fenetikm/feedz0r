@@ -36,7 +36,10 @@ func Handle(s *state.State, cmd cmdtypes.Command) error {
 
 	switch *outputFormat {
 	case "markdown":
-		content := fmt.Sprintf("<h2>%s</h2>%s", post.Title, post.Description.String)
+		t := time.Unix(post.PublishedAt, 0)
+		date := t.Format("Mon, 02 Jan. 2006")
+		content := fmt.Sprintf(`<h2>%s</h2>
+<a href="%s">%s</a><p>%s</p>%s`, post.Title, post.Url, post.Url, date, post.Description.String)
 		md, err := htmltomd.ConvertString(content)
 		if err != nil {
 			return fmt.Errorf("Couldn't convert description to markdown: %w", err)
