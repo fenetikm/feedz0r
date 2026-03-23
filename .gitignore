@@ -13,3 +13,6 @@
 
 # Claude
 .claude/settings.local.json
+
+# Other
+.ignore
