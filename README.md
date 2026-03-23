@@ -3,10 +3,11 @@
 RSS feed wrangler CLI.
 
 ## Installation
+Note!
+This doesn't quite work yet - requires setting up the db file.
 ```sh
 git clone ...
 go build -o fz ./cmd/fz
-# move fz somewhere on your $PATH
 ```
 
 ## Get going
