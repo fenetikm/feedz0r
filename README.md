@@ -31,5 +31,4 @@ fz watch
 ```
 
 ## FZF
-Make a feed reader:
-
+Using [fzf](https://github.com/junegunn/fzf) you can try `./browser.sh` once you have some feeds.
