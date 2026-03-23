@@ -5,7 +5,7 @@
 # Go
 *.test
 *.out
-/fz
+/bin/fz
 
 # Environment
 .env
