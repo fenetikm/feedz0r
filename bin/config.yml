@@ -2,4 +2,4 @@ fetch:
   timeout: 10
   refresh: 5
 db:
-  path: fz.db
+  path: ./fz.db
