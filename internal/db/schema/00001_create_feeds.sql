@@ -4,7 +4,8 @@ CREATE TABLE feeds (
   created_at INTEGER NOT NULL DEFAULT (unixepoch()),
   updated_at INTEGER NOT NULL DEFAULT (unixepoch()),
   name TEXT,
-  url TEXT UNIQUE NOT NULL
+  url TEXT UNIQUE NOT NULL,
+  last_fetched_at INTEGER
 );
 
 -- +goose Down
